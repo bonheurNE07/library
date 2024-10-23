@@ -8,4 +8,11 @@ class BookListCreateView(generics.ListCreateAPIView):
     # We specify BookSerializer which we have early implemented in the serializers module
     queryset = Book.objects.all()
     serilizer_class = BookSerializer
+
+class BookRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
+    serializer_class = BookSerializer
+    
+    def get_queryset(self):
+        return Book.objects.all()
+    
     
